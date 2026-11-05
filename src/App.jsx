@@ -11,7 +11,7 @@ export default function App() {
         src="./frame.webp"
         className="absolute w-full h-full object-cover select-none pointer-events-none top-0 left-0 z-10 transform scale-[1.1] transition-all duration-300 filter hover:drop-shadow-[0_2px_10px_rgba(0,0,2,0.5)]"
       />
-      <div className="absolute top-17 right-24 z-20 flex gap-5 p-2">
+      <div className="absolute top-17 right-19 z-20 flex gap-5 p-2">
         <PlayButton />
       </div>
 
@@ -44,9 +44,7 @@ export default function App() {
             </div>
           ))}
 
-          {selectedItem && (
-            <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
-          )}
+          {selectedItem && <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />}
           <ClockAnim />
         </div>
       </div>
@@ -77,12 +75,18 @@ function Modal({ item, onClose }) {
         <h2 className="text-xl font-bold mb-4">{item.title}</h2>
         <p>{item.content}</p>
         <div className="absolute inset-0 flex items-center justify-center">
-          <button
+          {/* <button */}
+          {/*   onClick={onClose} */}
+          {/*   className="absolute top-1 right-1 px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all duration-300" */}
+          {/* > */}
+          {/*   X */}
+          {/* </button> */}
+          <div
             onClick={onClose}
-            className="absolute top-1 right-1 px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all duration-300"
+            className="absolute top-1 right-1 px-2 py-1 scale-[0.7] cursor-pointer"
           >
-            X
-          </button>
+            <img src="./exitbtn.png" className="w-full h-full" />
+          </div>
         </div>
       </div>
     </div>
@@ -123,11 +127,7 @@ const PlayButton = () => {
       {isPlaying ? (
         <img src="./play.webp" alt="play" className="transform scale-[5]"></img>
       ) : (
-        <img
-          src="./pause.webp"
-          alt="pause"
-          className="transform scale-[5]"
-        ></img>
+        <img src="./pause.webp" alt="pause" className="transform scale-[5]"></img>
       )}
     </div>
   );

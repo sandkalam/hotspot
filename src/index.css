@@ -10,6 +10,6 @@ time .react-clock__face {
   border-radius: 50%;
   display: none;
 }
-*{
-  cursor: url('./cursor.cur'), auto;
-}
+/* *{ */
+/*   cursor: url('./cursor.cur'), auto; */
+/* } */
